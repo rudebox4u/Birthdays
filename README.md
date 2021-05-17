@@ -8,10 +8,10 @@ I made this for personal use as I do not use a calander but it is free for anyon
 
 
 == Installation (BASH) ==  
-Make sure you have Python3 installed.
-Download to a directory of your choice.
-Include the following line at the end of your .bashrc file. Be sure to change it to include the path to the directory containing the birthdays.py script.  
-    python3 ~/PATH_TO_DIRECTORY/birthdays.py
+Make sure you have Python3 installed.  
+Download to a directory of your choice.  
+Replace PATH_TO_DIRECTORY in the following line and add to the end of your .bashrc file  
+python3 ~/PATH_TO_DIRECTORY/birthdays.py
     
 
 == Usage ==  
