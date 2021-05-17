@@ -1,6 +1,6 @@
 == birthdays ==  
 Python script for terminal users that allows you input birthdays and be reminded of upcoming birthdays in the next 33 days.
-Instructions are for BASH shells but it should work with any other shell.
+Instructions are for BASH shells but it should work with any other shell.  
 Requires Python3.
 
 I made this for personal use as I do not use a calander but it is free for anyone to download and use under GNU 3 public licence.
