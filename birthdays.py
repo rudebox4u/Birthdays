@@ -5,7 +5,7 @@ import json
 import datetime
 import calendar
 
-filePath = './birthdays.json'
+filePath = sys.path[0] + '/birthdays.json'
 
 
 class Birthday:
