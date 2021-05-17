@@ -10,7 +10,7 @@ I made this for personal use as I do not use a calander but it is free for anyon
 == Installation (BASH) ==  
 Make sure you have Python3 installed.
 Download to a directory of your choice.
-Include the following line at the end of your .bashrc file. Be sure to change it to include the path to the directory containing the birthdays.py script.
+Include the following line at the end of your .bashrc file. Be sure to change it to include the path to the directory containing the birthdays.py script.  
     python3 ~/<path to directory>/birthdays.py
     
 
@@ -18,7 +18,7 @@ Include the following line at the end of your .bashrc file. Be sure to change it
 If you have added the line above to your .bashrc, the program will run automatically every time you open a BASH terminal.
 If there are no stored birthdays soon, there will be no output.
 
-To add a birthday to the list, run the script with the -a or --add argument.
+To add a birthday to the list, run the script with the -a or --add argument.  
   python3 ./birthdays.py -a
   
 After entering valid data you will be asked to confirm your choice.
