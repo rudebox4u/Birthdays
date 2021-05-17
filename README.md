@@ -25,11 +25,11 @@ After entering valid data you will be asked to confirm your choice.
 Make sure this is correct as there is currently no way to remove a birthday outside of opening the birthdays.JSON file and manually removing the entry.
 
 == Arguments ==  
--a --add : add a birthday
--p --print : print all stored birthdays
+-a --add : add a birthday  
+-p --print : print all stored birthdays    
 
 (Coming soon)
--h --help : User guide
--d --del : Delete a stored birthday.
+-h --help : User guide.  
+-d --del : Delete a stored birthday.  
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
