@@ -18,7 +18,6 @@ class Birthday:
 # DEFAULT FUNCTIONALITY FOR WHEN THE PROGRAM IS GIVEN NO ARGUMENTS
 # Checks to see if a birthday is within 33 days and outputs it to the terminal if so.
 def no_arguments(birthdays):
-    # Get today's date
     todays_date = datetime.date.today()
     leap_year = False
     if calendar.isleap(todays_date.year):
@@ -29,7 +28,7 @@ def no_arguments(birthdays):
             if int(b.month) == 2 and d == 29:
                 d = d-1
         birthday_date = datetime.date(todays_date.year, int(b.month), d)
-        # if today > birthday, set birthday to next year.
+        # if today is after their birthday, set the year to next year
         if todays_date > birthday_date:
             next_year = todays_date.year + 1
             birthday_date = datetime.date(next_year, b.month, d)
@@ -41,10 +40,12 @@ def no_arguments(birthdays):
             print(b.name + "'s birthday is in", difference, "days.")
 
 
+# CHECKS IF A DATE IS VALID
+# Allow leap year without checking as the year of the person's birthday is never asked for.
+# All other dates are checked against the calendar to see if they exist eg. no 32nd of March.
+# datetime.date will throw an exception if an invalid date is thrown.
 def day_is_valid(d, m):
-    # Allow leap year as year is never asked for
     if d == 29 and m == 2:
-        print("returning true")
         return True
     else:
         today = datetime.date.today()
@@ -52,15 +53,14 @@ def day_is_valid(d, m):
             x = datetime.date(today.year, m, d)
             return True
         except:
-            print("returning false")
             return False
 
 
-# Function for adding a new birthday
+# FUNCTION FOR ADDING A NEW BIRTHDAY TO THE JSON FILE
+# Take input from console and check if the data entered is both numeric and a valid date.
 def add(birthdays):
-    # TAKE INPUT FROM CONSOLE AND CHECK IF THE DATA ENTERED IS BOTH NUMERIC AND A VALID DATE
     name = input("Enter the person's name: ")
-    # CHECK IF MONTH IS VALID
+    # Take int for the month and check it is valid
     month_is_valid = False
     while not month_is_valid:
         month = input("Enter the month of {}'s birthday: ".format(name))
@@ -68,7 +68,7 @@ def add(birthdays):
             month_is_valid = True
         else:
             print("Please enter a valid number between 1 and 12 to represent the month.")
-    # CHECK IF DAY IS VALID
+    # Take int for day and check it is valid
     valid = False
     while not valid:
         day = input("Enter the date (day) of their birthday: ")
@@ -76,7 +76,7 @@ def add(birthdays):
             valid = True
         else:
             print("Please enter a valid number that represents a valid day in {}.".format(month))
-    # CONFIRM WHETHER DETAILS ARE CORRECT
+    # Confirm details before committing
     loop = True
     should_commit = False
     while loop:
@@ -124,6 +124,7 @@ def with_arguments(leftovers, birthdays):
             return birthdays
 
 
+# === Main Method === #
 # OPEN TEXT FILE FOR READ AND WRITE OR CREATE FILE IF IT DOES NOT EXIST
 if os.path.isfile(filePath):
     text_file = open(filePath, 'r+')
@@ -133,14 +134,14 @@ if os.path.isfile(filePath):
     for birthday in birthdayDict:
         birthdaysArray.append(Birthday(birthday.get('name'), birthday.get('month'), birthday.get('day')))
 else:
-    # Create file
+    # Create json file and fill with empty array
     print('File does not exist')
     text_file = open(filePath, 'w+')
-    # create empty array in text_file
     birthdaysArray = []
     text_file.seek(0)
     json.dump([ob.__dict__ for ob in birthdaysArray], text_file)
-# CHECK FOR COMMAND LINE ARGUMENTS AND RUN APPROPRIATE FUNCTIONS
+
+# CHECK FOR COMMAND LINE ARGUMENTS AND EXECUTE APPROPRIATE FUNCTIONS
 fullArguments = sys.argv
 if len(fullArguments) == 1:
     no_arguments(birthdaysArray)
