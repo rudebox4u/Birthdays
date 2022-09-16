@@ -18,6 +18,7 @@ class Birthday:
 # DEFAULT FUNCTIONALITY FOR WHEN THE PROGRAM IS GIVEN NO ARGUMENTS
 # Checks to see if a birthday is within 33 days and outputs it to the terminal if so.
 def no_arguments(birthdays):
+    # print("hello")
     todays_date = datetime.date.today()
     leap_year = False
     if calendar.isleap(todays_date.year):
